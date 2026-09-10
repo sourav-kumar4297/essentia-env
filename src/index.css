@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Aladin&family=Geist+Mono:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Macondo&display=swap');
+
+@import "tailwindcss";
+
+
+@theme {
+  --font-lato: "Lato", ui-sans-serif, system-ui;
+}
+
+
+/* Images GPU par render hon aur unka layout pehle se fix ho */
+img {
+  content-visibility: auto;
+  transform: translateZ(0); /* Yeh browser ko force karta hai GPU use karne ke liye */
+  backface-visibility: hidden;
+}

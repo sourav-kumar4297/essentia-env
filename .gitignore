@@ -1,0 +1,69 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Build output
+dist/
+dist-ssr/
+
+# Dependencies
+node_modules/
+
+
+# Vite / React / tooling caches
+.vite/
+.cache/
+*.tsbuildinfo
+
+# Optional npm/yarn caches
+.npm/
+.yarn/
+.pnpm-store/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local agent settings
+.claude/
+
+# Too large for a GitHub HTTPS push (kept on disk / live site)
+*.mp4
+*.MP4
+*.pdf
+*.pptx
+public/SalesKitImgs/
+public/Testimonial/vid/
+public/jaipur clubhouse/
+public/pdf-pages/
+public/catalogue/
+public/camelias residence/
+public/lighting design B&w/
+public/INTERIOR DESIGN/
+public/2026/
+public/architectrual/
+public/amritsar office/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+

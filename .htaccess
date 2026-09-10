@@ -1,0 +1,67 @@
+Options -MultiViews
+RewriteEngine On
+
+# ── PRERENDERED CANONICAL SHELLS ──────────────
+# Serve static HTML (with correct canonical baked in) for known top-level
+# routes so crawlers that don't execute JS see the right canonical tag.
+RewriteRule ^about/?$ _prerender/about.html [L]
+RewriteRule ^about-us/?$ _prerender/about-us.html [L]
+RewriteRule ^company-profile/?$ _prerender/company-profile.html [L]
+RewriteRule ^designer/?$ _prerender/designer.html [L]
+RewriteRule ^projects/?$ _prerender/projects.html [L]
+RewriteRule ^services/?$ _prerender/services.html [L]
+RewriteRule ^media/?$ _prerender/media.html [L]
+RewriteRule ^contact/?$ _prerender/contact.html [L]
+RewriteRule ^career/?$ _prerender/career.html [L]
+RewriteRule ^blogs/?$ _prerender/blogs.html [L]
+RewriteRule ^testimonials/?$ _prerender/testimonials.html [L]
+RewriteRule ^catalogues/?$ _prerender/catalogues.html [L]
+RewriteRule ^essentia-edits/?$ _prerender/essentia-edits.html [L]
+RewriteRule ^media/essentia-edits/?$ _prerender/media-essentia-edits.html [L]
+RewriteRule ^thank-you/?$ _prerender/thank-you.html [L]
+
+# ── STATIC PAGES ───────────────────────────────
+RewriteRule ^awards/?$ awards/index.html [L]
+RewriteRule ^luxury-interior-designers-gurgaon/?$ luxury-interior-designers-gurgaon/index.html [L]
+
+# ── SPA FALLBACK (dynamic/unlisted routes) ────
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+
+# ── GZIP COMPRESSION ──────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml font/woff font/woff2
+</IfModule>
+
+# ── BROWSER CACHING ───────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Images - 1 year
+  ExpiresByType image/webp        "access plus 1 year"
+  ExpiresByType image/png         "access plus 1 year"
+  ExpiresByType image/jpg         "access plus 1 year"
+  ExpiresByType image/jpeg        "access plus 1 year"
+  ExpiresByType image/svg+xml     "access plus 1 year"
+
+  # Fonts - 1 year
+  ExpiresByType font/woff         "access plus 1 year"
+  ExpiresByType font/woff2        "access plus 1 year"
+
+  # JS & CSS - 1 month
+  ExpiresByType text/css          "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  # Video - 1 year
+  ExpiresByType video/mp4         "access plus 1 year"
+  ExpiresByType video/webm        "access plus 1 year"
+</IfModule>
+
+# ── KEEP-ALIVE ────────────────────────────────
+<IfModule mod_headers.c>
+  Header set Connection keep-alive
+</IfModule>

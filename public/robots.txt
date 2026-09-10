@@ -1,0 +1,207 @@
+# robots.txt for essentia environments
+
+# Last Updated: 2026-07-04
+
+# Purpose: Full search + AI answer engine visibility (SEO + AEO + GEO)
+ 
+# ============================================
+
+# DEFAULT - ALL CRAWLERS
+
+# ============================================
+ 
+User-agent: *
+
+Allow: /
+
+Disallow: /wp-admin/
+
+Allow: /wp-admin/admin-ajax.php
+
+Disallow: /wp-login.php
+
+Disallow: /wp-json/
+
+Disallow: /cart/
+
+Disallow: /checkout/
+
+Disallow: /my-account/
+
+Disallow: /?s=
+
+Disallow: /search/
+
+Disallow: /*?replytocom=
+
+Disallow: /*/feed/
+
+Disallow: /tag/
+ 
+# ============================================
+
+# GOOGLE
+
+# ============================================
+ 
+User-agent: Googlebot
+
+Allow: /
+ 
+# Google AI (Gemini / AI Overviews grounding)
+
+User-agent: Google-Extended
+
+Allow: /
+ 
+User-agent: Google-CloudVertexBot
+
+Allow: /
+ 
+# ============================================
+
+# BING / MICROSOFT (Copilot)
+
+# ============================================
+ 
+User-agent: Bingbot
+
+Allow: /
+ 
+# ============================================
+
+# OPENAI (ChatGPT / SearchGPT)
+
+# ============================================
+ 
+User-agent: GPTBot
+
+Allow: /
+ 
+User-agent: OAI-SearchBot
+
+Allow: /
+ 
+User-agent: ChatGPT-User
+
+Allow: /
+ 
+# ============================================
+
+# ANTHROPIC (Claude)
+
+# ============================================
+ 
+User-agent: ClaudeBot
+
+Allow: /
+ 
+User-agent: Claude-Web
+
+Allow: /
+ 
+User-agent: Claude-User
+
+Allow: /
+ 
+User-agent: Claude-SearchBot
+
+Allow: /
+ 
+User-agent: anthropic-ai
+
+Allow: /
+ 
+# ============================================
+
+# PERPLEXITY
+
+# ============================================
+ 
+User-agent: PerplexityBot
+
+Allow: /
+ 
+User-agent: Perplexity-User
+
+Allow: /
+ 
+# ============================================
+
+# OTHER AI ANSWER ENGINES
+
+# ============================================
+ 
+# Apple Intelligence / Siri
+
+User-agent: Applebot
+
+Allow: /
+ 
+User-agent: Applebot-Extended
+
+Allow: /
+ 
+# Meta AI
+
+User-agent: meta-externalagent
+
+Allow: /
+ 
+User-agent: FacebookBot
+
+Allow: /
+ 
+# Amazon Alexa / Rufus
+
+User-agent: Amazonbot
+
+Allow: /
+ 
+# DuckDuckGo AI (DuckAssist)
+
+User-agent: DuckAssistBot
+
+Allow: /
+ 
+User-agent: DuckDuckBot
+
+Allow: /
+ 
+# Common Crawl (training corpus for most LLMs)
+
+User-agent: CCBot
+
+Allow: /
+ 
+# Cohere
+
+User-agent: cohere-ai
+
+Allow: /
+ 
+# Mistral
+
+User-agent: MistralAI-User
+
+Allow: /
+ 
+# xAI Grok
+
+User-agent: xAI-Bot
+
+Allow: /
+ 
+# You.com
+
+User-agent: YouBot
+
+Allow: /
+ 
+# ============================================
+
+# SITEMAP
+
+# ============================================
+ 
+Sitemap: https://essentiaenvironments.com/sitemap.xml
