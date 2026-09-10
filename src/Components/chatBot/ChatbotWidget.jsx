@@ -553,9 +553,7 @@ const ChatbotWidget = () => {
  {/* Powered by */}
  <div className="bg-black/60 pb-3 flex justify-center flex-shrink-0">
  <p className="text-[10px] text-zinc-500 tracking-widest lowercase font-light">
- powered by <span className="text-zinc-400 font-medium tracking-normal">claude ai</span>
- <span className="text-zinc-600 mx-1.5">·</span>
- <span className="text-zinc-600">webkik services</span>
+ powered by groq
  </p>
  </div>
  </motion.div>

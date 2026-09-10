@@ -2,6 +2,7 @@
   "name": "essentia",
   "private": true,
   "version": "0.0.0",
+  "author": "Sourav Sharma <sourav@innovomarkets.com>",
   "type": "module",
   "scripts": {
     "dev": "vite",
