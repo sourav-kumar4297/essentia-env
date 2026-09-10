@@ -38,22 +38,11 @@ node_modules/
 # Local agent settings
 .claude/
 
-# Too large for a GitHub HTTPS push (kept on disk / live site)
+# GitHub rejects files over 100MB; keep huge videos/PDFs local
 *.mp4
 *.MP4
 *.pdf
 *.pptx
-public/SalesKitImgs/
-public/Testimonial/vid/
-public/jaipur clubhouse/
-public/pdf-pages/
-public/catalogue/
-public/camelias residence/
-public/lighting design B&w/
-public/INTERIOR DESIGN/
-public/2026/
-public/architectrual/
-public/amritsar office/
 
 # Editor directories and files
 .vscode/*

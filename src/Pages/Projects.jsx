@@ -1,5 +1,5 @@
 import React from 'react'
-import ProCard from '../Components/projectSection/ProCrad';
+import ProCard from '../Components/ProjectSection/ProCrad';
 import PageHeroSection from '../Components/PageHeroSection';
 
 

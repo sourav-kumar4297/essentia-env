@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "r
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 // Components
-import Header from "./components/Header";
+import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import SmoothScroll from "./components/SmoothScroll";
-import GlobalLoader from "./components/GlobalLoader";
+import SmoothScroll from "./Components/SmoothScroll";
+import GlobalLoader from "./Components/GlobalLoader";
 import NoIndexPage from "./Components/NoIndexPage";
 import ChatbotWidget from "./Components/chatBot/ChatbotWidget";
 
