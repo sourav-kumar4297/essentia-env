@@ -7,6 +7,6 @@
     { "source": "/awards/", "destination": "/awards/index.html" },
     { "source": "/luxury-interior-designers-gurgaon", "destination": "/luxury-interior-designers-gurgaon/index.html" },
     { "source": "/luxury-interior-designers-gurgaon/", "destination": "/luxury-interior-designers-gurgaon/index.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }

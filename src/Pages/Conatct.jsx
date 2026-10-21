@@ -54,16 +54,17 @@ const ContactForm = () => {
         setIsSubmitting(true);
         setStatus('sending...');
         try {
-            const response = await fetch('https://essentia-backend-mail.vercel.app/api/contact', {
+            const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
+            const result = await response.json().catch(() => ({}));
             if (response.ok) {
                 setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
                 navigate('/thank-you');
             } else {
-                setStatus('failed to send message.');
+                setStatus(result.message || 'failed to send message.');
                 setTimeout(() => setStatus(''), 5000);
             }
         } catch (error) {

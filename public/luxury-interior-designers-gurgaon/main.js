@@ -185,7 +185,7 @@
     };
 
     try {
-      var response = await fetch('https://essentia-backend-mail.vercel.app/api/contact', {
+      var response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

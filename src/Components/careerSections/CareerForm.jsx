@@ -310,28 +310,32 @@ const CareerForm = () => {
             return;
         }
 
+        if (selectedFile.size > 3 * 1024 * 1024) {
+            alert("resume must be a PDF or Word file under 3 MB.");
+            return;
+        }
+
         setIsSubmitting(true);
 
-        // FormData API ka use (Kyunki hum file bhej rahe hain)
-        const submitData = new FormData();
-        submitData.append('name', formData.name);
-        submitData.append('email', formData.email);
-        submitData.append('phone', formData.phone);
-        submitData.append('category', formData.category);
-        submitData.append('portfolio', formData.portfolio);
-        submitData.append('message', formData.message);
-        submitData.append('resume', selectedFile); // Ye backend mein upload.single('resume') se match hona chahiye
-
         try {
-            // const response = await fetch('http://localhost:5000/api/career', {
-            //     method: 'POST',
-            //     // Dhyan de: Yahan Content-Type header set NAHI karna hai. Browser FormData ke sath khud set karta hai.
-            //     body: submitData
-            // });
+            const resumeData = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(String(reader.result || '').split(',')[1] || '');
+                reader.onerror = () => reject(reader.error);
+                reader.readAsDataURL(selectedFile);
+            });
 
-            const response = await fetch('https://essentia-backend-mail.vercel.app/api/career', {
+            const response = await fetch('/api/career', {
                 method: 'POST',
-                body: submitData
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...formData,
+                    resume: {
+                        filename: selectedFile.name,
+                        type: selectedFile.type,
+                        data: resumeData,
+                    },
+                }),
             });
 
             const result = await response.json();
