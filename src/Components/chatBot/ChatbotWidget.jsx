@@ -7,7 +7,6 @@ import { Linkedin, Youtube, Instagram, Facebook, Phone, Mail, MapPin } from"luci
 
 const STORAGE_KEY = 'essentia_chat_session';
 const LEADS_KEY = 'essentia_leads';
-const API_KEY = import.meta.env.VITE_GROQ_API_KEY;
 
 const WHATSAPP_NUMBER = '919810088877';
 
@@ -89,12 +88,9 @@ const buildHistory = (messages) =>
  }));
 
 const callClaude = async (userText, history, systemPrompt) => {
- const url = import.meta.env.DEV ? '/api/groq-chat' : 'https://api.groq.com/openai/v1/chat/completions'
- const headers = { 'Content-Type': 'application/json' }
- if (!import.meta.env.DEV) headers.Authorization = `Bearer ${API_KEY}`
- const res = await fetch(url, {
+ const res = await fetch('/api/groq-chat', {
  method: 'POST',
- headers,
+ headers: { 'Content-Type': 'application/json' },
  body: JSON.stringify({
  model: 'openai/gpt-oss-20b',
  max_tokens: 600,
@@ -349,11 +345,6 @@ const ChatbotWidget = () => {
  handleFormCancel(lastConfirmIdx);
  return;
  }
- }
-
- if (!import.meta.env.DEV && !API_KEY) {
- addMsg({ role: 'bot', content: 'api key missing. please add vite_groq_api_key to your .env file.' });
- return;
  }
 
  setIsLoading(true);
