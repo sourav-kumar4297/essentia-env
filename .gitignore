@@ -34,6 +34,7 @@ node_modules/
 .env
 .env.*
 !.env.example
+.cf-secrets.json
 
 # Local agent settings
 .claude/
