@@ -35,6 +35,8 @@ node_modules/
 .env.*
 !.env.example
 .cf-secrets.json
+.dev.vars
+.wrangler/
 
 # Local agent settings
 .claude/

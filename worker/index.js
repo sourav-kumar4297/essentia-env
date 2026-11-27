@@ -118,7 +118,10 @@ async function sendMail(env, message) {
     throw error
   }
 
-  const socket = connect({ hostname: 'smtp.office365.com', port: 587 })
+  const socket = connect(
+    { hostname: env.SMTP_HOST || 'smtp.office365.com', port: Number(env.SMTP_PORT || 587) },
+    { secureTransport: 'starttls' },
+  )
   let reader = socket.readable.getReader()
   let writer = socket.writable.getWriter()
   try {
